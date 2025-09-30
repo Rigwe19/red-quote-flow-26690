@@ -19,7 +19,7 @@ const Hero = () => {
           alt="Modern web agency team" 
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-hero opacity-60"></div>
+        <div className="absolute inset-0 bg-primary/80"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-black/30"></div>
       </div>
 
@@ -40,7 +40,7 @@ const Hero = () => {
           <div className="mb-8 animate-fade-in">
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
               Transform Your
-              <span className="bg-gradient-to-r from-white to-red-200 bg-clip-text text-transparent">
+              <span className="text-primary-glow">
                 {' '}Digital Vision
               </span>
             </h1>
