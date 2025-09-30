@@ -12,7 +12,7 @@ const Testimonials = () => {
       company: 'TechStart Inc.',
       image: teamImage,
       rating: 5,
-      text: "RedAgency transformed our vision into reality. Their attention to detail and technical expertise exceeded our expectations. Our new platform has increased user engagement by 300%.",
+      text: "Cyonex transformed our vision into reality. Their attention to detail and technical expertise exceeded our expectations. Our new platform has increased user engagement by 300%.",
       project: 'SaaS Platform',
       industry: 'Technology'
     },
@@ -34,7 +34,7 @@ const Testimonials = () => {
       company: 'Creative Studio',
       image: teamImage,
       rating: 5,
-      text: "Working with RedAgency was a game-changer. They created a stunning portfolio website that perfectly represents our brand. Client inquiries have increased by 200% since launch.",
+      text: "Working with Cyonex was a game-changer. They created a stunning portfolio website that perfectly represents our brand. Client inquiries have increased by 200% since launch.",
       project: 'Portfolio Website',
       industry: 'Design'
     },
@@ -56,7 +56,7 @@ const Testimonials = () => {
       company: 'Healthcare Plus',
       image: teamImage,
       rating: 5,
-      text: "RedAgency delivered a complex healthcare management system on time and within budget. Their support team is always available when we need assistance.",
+      text: "Cyonex delivered a complex healthcare management system on time and within budget. Their support team is always available when we need assistance.",
       project: 'Management System',
       industry: 'Healthcare'
     },

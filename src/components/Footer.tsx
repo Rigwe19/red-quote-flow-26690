@@ -25,7 +25,7 @@ const Footer = () => {
   const company = [
     { name: 'About Us', href: '#about' },
     { name: 'Our Team', href: '#about' },
-    { name: 'Careers', href: 'mailto:careers@redagency.com' },
+    { name: 'Careers', href: 'mailto:careers@cyonex.com' },
     { name: 'Case Studies', href: '#portfolio' },
     { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '#contact' }
@@ -34,10 +34,10 @@ const Footer = () => {
   const resources = [
     { name: 'Documentation', href: '/docs' },
     { name: 'Help Center', href: '/help' },
-    { name: 'Community', href: 'https://discord.gg/redagency' },
+    { name: 'Community', href: 'https://discord.gg/cyonex' },
     { name: 'Tutorials', href: '/tutorials' },
     { name: 'API Reference', href: '/api-docs' },
-    { name: 'Status Page', href: 'https://status.redagency.com' }
+    { name: 'Status Page', href: 'https://status.cyonex.com' }
   ];
 
   const legal = [
@@ -88,7 +88,7 @@ const Footer = () => {
               <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
                 <Code2 className="w-5 h-5 text-white" />
               </div>
-              <span className="text-2xl font-bold">RedAgency</span>
+              <span className="text-2xl font-bold">Cyonex</span>
             </div>
             <p className="text-white/80 mb-6 leading-relaxed">
               We're a passionate team of developers and designers who create 
@@ -102,7 +102,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-primary" />
-                <span className="text-white/80">hello@redagency.com</span>
+                <span className="text-white/80">hello@cyonex.com</span>
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin className="w-5 h-5 text-primary" />
@@ -200,14 +200,14 @@ const Footer = () => {
         <div className="container mx-auto px-4 py-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-white/60 text-sm mb-4 md:mb-0">
-              © 2024 RedAgency. All rights reserved. Built with passion and cutting-edge technology.
+              © 2024 Cyonex. All rights reserved. Built with passion and cutting-edge technology.
             </div>
             <div className="flex space-x-6">
               {[
-                { icon: Facebook, href: 'https://facebook.com/redagency' },
-                { icon: Twitter, href: 'https://twitter.com/redagency' },
-                { icon: Instagram, href: 'https://instagram.com/redagency' },
-                { icon: Linkedin, href: 'https://linkedin.com/company/redagency' }
+                { icon: Facebook, href: 'https://facebook.com/cyonex' },
+                { icon: Twitter, href: 'https://twitter.com/cyonex' },
+                { icon: Instagram, href: 'https://instagram.com/cyonex' },
+                { icon: Linkedin, href: 'https://linkedin.com/company/cyonex' }
               ].map((social, index) => {
                 const IconComponent = social.icon;
                 return (

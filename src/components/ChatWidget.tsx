@@ -77,7 +77,7 @@ const ChatWidget = () => {
           messages: [
             {
               role: 'system',
-              content: `You are a professional business consultant for RedAgency, a web development agency. 
+              content: `You are a professional business consultant for Cyonex, a web development agency. 
               
               Your role is to:
               - Help clients understand our web development services
