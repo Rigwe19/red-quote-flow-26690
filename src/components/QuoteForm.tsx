@@ -7,7 +7,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Badge } from '@/components/ui/badge';
-import { Upload, DollarSign, Clock, Mail } from 'lucide-react';
+import { Upload, Clock, Mail } from 'lucide-react';
 
 const QuoteForm = () => {
   const [formData, setFormData] = useState({
@@ -26,14 +26,14 @@ const QuoteForm = () => {
   const [estimatedPrice, setEstimatedPrice] = useState(0);
 
   const websiteTypes = [
-    { value: 'ecommerce', label: 'E-commerce Store', basePrice: 3000 },
-    { value: 'portfolio', label: 'Portfolio Website', basePrice: 1500 },
-    { value: 'blog', label: 'Blog/Content Site', basePrice: 1200 },
-    { value: 'saas', label: 'SaaS Platform', basePrice: 5000 },
-    { value: 'corporate', label: 'Corporate Website', basePrice: 2500 },
-    { value: 'booking', label: 'Booking System', basePrice: 3500 },
-    { value: 'marketplace', label: 'Marketplace', basePrice: 7000 },
-    { value: 'custom', label: 'Custom Solution', basePrice: 4000 }
+    { value: 'ecommerce', label: 'E-commerce Store', basePrice: 2400 },
+    { value: 'portfolio', label: 'Portfolio Website', basePrice: 1200 },
+    { value: 'blog', label: 'Blog/Content Site', basePrice: 950 },
+    { value: 'saas', label: 'SaaS Platform', basePrice: 4000 },
+    { value: 'corporate', label: 'Corporate Website', basePrice: 2000 },
+    { value: 'booking', label: 'Booking System', basePrice: 2800 },
+    { value: 'marketplace', label: 'Marketplace', basePrice: 5600 },
+    { value: 'custom', label: 'Custom Solution', basePrice: 3200 }
   ];
 
   const pageRanges = [
@@ -45,24 +45,24 @@ const QuoteForm = () => {
   ];
 
   const features = [
-    { id: 'seo', label: 'SEO Optimization', price: 500 },
-    { id: 'payment', label: 'Payment Integration', price: 800 },
-    { id: 'booking', label: 'Booking System', price: 1200 },
-    { id: 'cms', label: 'Content Management', price: 600 },
-    { id: 'analytics', label: 'Analytics Setup', price: 300 },
-    { id: 'social', label: 'Social Media Integration', price: 400 },
-    { id: 'multilingual', label: 'Multi-language Support', price: 700 },
-    { id: 'api', label: 'API Integration', price: 900 },
-    { id: 'mobile', label: 'Mobile App', price: 2500 },
-    { id: 'maintenance', label: '6 Months Maintenance', price: 1000 }
+    { id: 'seo', label: 'SEO Optimization', price: 400 },
+    { id: 'payment', label: 'Payment Integration', price: 650 },
+    { id: 'booking', label: 'Booking System', price: 950 },
+    { id: 'cms', label: 'Content Management', price: 480 },
+    { id: 'analytics', label: 'Analytics Setup', price: 240 },
+    { id: 'social', label: 'Social Media Integration', price: 320 },
+    { id: 'multilingual', label: 'Multi-language Support', price: 560 },
+    { id: 'api', label: 'API Integration', price: 720 },
+    { id: 'mobile', label: 'Mobile App', price: 2000 },
+    { id: 'maintenance', label: '6 Months Maintenance', price: 800 }
   ];
 
   const budgetRanges = [
-    '$1,000 - $5,000',
-    '$5,000 - $10,000',
-    '$10,000 - $25,000',
-    '$25,000 - $50,000',
-    '$50,000+'
+    '£800 - £4,000',
+    '£4,000 - £8,000',
+    '£8,000 - £20,000',
+    '£20,000 - £40,000',
+    '£40,000+'
   ];
 
   const calculateEstimate = () => {
@@ -227,7 +227,7 @@ const QuoteForm = () => {
                             {feature.label}
                           </Label>
                           <Badge variant="outline" className="text-xs">
-                            +${feature.price}
+                            +£{feature.price}
                           </Badge>
                         </div>
                       ))}
@@ -292,23 +292,22 @@ const QuoteForm = () => {
 
                 {/* Price Estimate */}
                 {estimatedPrice > 0 && (
-                  <Card className="bg-gradient-primary text-white">
+                  <Card className="bg-primary text-primary-foreground">
                     <CardContent className="p-6">
                       <div className="flex items-center justify-between">
                         <div>
                           <h3 className="text-lg font-semibold mb-2">Estimated Project Cost</h3>
-                          <p className="text-white/80 text-sm">
+                          <p className="text-primary-foreground/80 text-sm">
                             This is a preliminary estimate. Final pricing may vary based on specific requirements.
                           </p>
                         </div>
                         <div className="text-right">
                           <div className="flex items-center gap-2">
-                            <DollarSign className="w-6 h-6" />
                             <span className="text-3xl font-bold">
-                              {estimatedPrice.toLocaleString()}
+                              £{estimatedPrice.toLocaleString()}
                             </span>
                           </div>
-                          <p className="text-white/80 text-sm">Starting from</p>
+                          <p className="text-primary-foreground/80 text-sm">Starting from</p>
                         </div>
                       </div>
                     </CardContent>
@@ -323,7 +322,6 @@ const QuoteForm = () => {
                     onClick={calculateEstimate} 
                     className="flex-1"
                   >
-                    <DollarSign className="w-4 h-4 mr-2" />
                     Calculate Estimate
                   </Button>
                   <Button type="submit" variant="hero" className="flex-1">

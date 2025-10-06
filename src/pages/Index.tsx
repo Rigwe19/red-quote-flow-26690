@@ -3,7 +3,7 @@ import Hero from '@/components/Hero';
 import Services from '@/components/Services';
 import Portfolio from '@/components/Portfolio';
 import ProcessTimeline from '@/components/ProcessTimeline';
-import QuoteForm from '@/components/QuoteForm';
+import QuoteFormModal from '@/components/QuoteFormModal';
 import Testimonials from '@/components/Testimonials';
 import Footer from '@/components/Footer';
 import ChatWidget from '@/components/ChatWidget';
@@ -25,8 +25,16 @@ const Index = () => {
       <section id="about">
         <Testimonials />
       </section>
-      <section id="quote">
-        <QuoteForm />
+      <section id="quote" className="py-20 bg-background">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+            Ready to Start Your Project?
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+            Get a detailed quote tailored to your specific needs and requirements.
+          </p>
+          <QuoteFormModal />
+        </div>
       </section>
       <section id="contact">
         <Footer />

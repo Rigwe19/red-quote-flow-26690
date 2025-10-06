@@ -19,7 +19,7 @@ const Services = () => {
       title: 'Custom Web Development',
       description: 'Bespoke websites tailored to your unique business needs and goals.',
       features: ['React/Next.js Development', 'Custom CMS Solutions', 'API Integrations', 'Performance Optimization'],
-      price: 'From $2,500',
+      price: 'From £1,800',
       popular: false
     },
     {
@@ -27,7 +27,7 @@ const Services = () => {
       title: 'E-commerce Solutions',
       description: 'Complete online stores that drive sales and provide exceptional user experiences.',
       features: ['Shopify/WooCommerce', 'Payment Gateway Setup', 'Inventory Management', 'Order Processing'],
-      price: 'From $3,500',
+      price: 'From £2,800',
       popular: true
     },
     {
@@ -35,7 +35,7 @@ const Services = () => {
       title: 'Mobile App Development',
       description: 'Native and cross-platform mobile applications for iOS and Android.',
       features: ['React Native Development', 'Native iOS/Android', 'App Store Deployment', 'Push Notifications'],
-      price: 'From $5,000',
+      price: 'From £4,500',
       popular: false
     },
     {
@@ -43,7 +43,7 @@ const Services = () => {
       title: 'SaaS Platform Development',
       description: 'Scalable software-as-a-service platforms built for growth.',
       features: ['User Management', 'Subscription Billing', 'Multi-tenant Architecture', 'Analytics Dashboard'],
-      price: 'From $7,500',
+      price: 'From £6,500',
       popular: false
     },
     {
@@ -51,7 +51,7 @@ const Services = () => {
       title: 'SEO & Digital Marketing',
       description: 'Comprehensive SEO and digital marketing strategies to boost your online presence.',
       features: ['Technical SEO Audit', 'Content Strategy', 'Google Ads Management', 'Analytics Setup'],
-      price: 'From $1,200/mo',
+      price: 'From £950/mo',
       popular: false
     },
     {
@@ -59,7 +59,7 @@ const Services = () => {
       title: 'UI/UX Design',
       description: 'Beautiful, user-centered designs that convert visitors into customers.',
       features: ['User Research', 'Wireframing & Prototyping', 'Visual Design', 'Usability Testing'],
-      price: 'From $1,500',
+      price: 'From £1,200',
       popular: false
     }
   ];
@@ -89,14 +89,14 @@ const Services = () => {
                 }`}
               >
                 {service.popular && (
-                  <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-primary text-white">
+                  <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground">
                     Most Popular
                   </Badge>
                 )}
                 
                 <CardHeader className="text-center pb-4">
-                  <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 shadow-red">
-                    <IconComponent className="w-8 h-8 text-white" />
+                  <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 shadow-soft">
+                    <IconComponent className="w-8 h-8 text-primary-foreground" />
                   </div>
                   <CardTitle className="text-2xl mb-3">{service.title}</CardTitle>
                   <CardDescription className="text-base">
@@ -135,16 +135,16 @@ const Services = () => {
 
         {/* CTA Section */}
         <div className="mt-16 text-center">
-          <Card className="bg-gradient-primary text-white shadow-red">
+          <Card className="bg-primary text-primary-foreground shadow-soft">
             <CardContent className="p-12">
               <h3 className="text-3xl font-bold mb-4">
                 Need a Custom Solution?
               </h3>
-              <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+              <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
                 Every business is unique. Let's discuss how we can create a tailored 
                 solution that perfectly fits your specific requirements and goals.
               </p>
-              <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white hover:text-foreground">
+              <Button variant="outline" size="lg" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-primary">
                 Schedule a Consultation
               </Button>
             </CardContent>
