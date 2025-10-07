@@ -40,7 +40,7 @@ const Hero = () => {
           <div className="mb-8 animate-fade-in">
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
               Transform Your
-              <span className="text-primary-glow">
+              <span className="text-white drop-shadow-lg">
                 {' '}Digital Vision
               </span>
             </h1>
