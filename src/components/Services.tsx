@@ -4,9 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { 
   Globe, 
   ShoppingCart, 
-  Smartphone, 
   Database,
-  Search,
   Palette,
   ArrowRight,
   CheckCircle
@@ -16,50 +14,38 @@ const Services = () => {
   const services = [
     {
       icon: Globe,
-      title: 'Custom Web Development',
-      description: 'Bespoke websites tailored to your unique business needs and goals.',
-      features: ['React/Next.js Development', 'Custom CMS Solutions', 'API Integrations', 'Performance Optimization'],
-      price: 'From £1,800',
-      popular: false
-    },
-    {
-      icon: ShoppingCart,
-      title: 'E-commerce Solutions',
-      description: 'Complete online stores that drive sales and provide exceptional user experiences.',
-      features: ['Shopify/WooCommerce', 'Payment Gateway Setup', 'Inventory Management', 'Order Processing'],
-      price: 'From £2,800',
-      popular: true
-    },
-    {
-      icon: Smartphone,
-      title: 'Mobile App Development',
-      description: 'Native and cross-platform mobile applications for iOS and Android.',
-      features: ['React Native Development', 'Native iOS/Android', 'App Store Deployment', 'Push Notifications'],
-      price: 'From £4,500',
+      title: 'Starter Website',
+      description: 'Perfect for freelancers, tradesmen, or startups needing a simple online presence.',
+      features: ['Up to 3 sections', 'Mobile-friendly design', 'Contact form', 'Basic SEO setup', 'SSL certificate', 'Domain + hosting setup'],
+      price: '£450 - £900',
+      enterprisePrice: '£1,000 - £1,800',
       popular: false
     },
     {
       icon: Database,
-      title: 'SaaS Platform Development',
-      description: 'Scalable software-as-a-service platforms built for growth.',
-      features: ['User Management', 'Subscription Billing', 'Multi-tenant Architecture', 'Analytics Dashboard'],
-      price: 'From £6,500',
-      popular: false
-    },
-    {
-      icon: Search,
-      title: 'SEO & Digital Marketing',
-      description: 'Comprehensive SEO and digital marketing strategies to boost your online presence.',
-      features: ['Technical SEO Audit', 'Content Strategy', 'Google Ads Management', 'Analytics Setup'],
-      price: 'From £950/mo',
-      popular: false
+      title: 'Professional Business Website',
+      description: 'Growing businesses wanting more functionality and polish with 5-10 pages.',
+      features: ['Up to 10 pages', 'Custom responsive layout', 'On-page SEO', 'Blog setup', 'Google Analytics', 'Basic security'],
+      price: '£1,200 - £2,500',
+      enterprisePrice: '£2,800 - £4,500',
+      popular: true
     },
     {
       icon: Palette,
-      title: 'UI/UX Design',
-      description: 'Beautiful, user-centered designs that convert visitors into customers.',
-      features: ['User Research', 'Wireframing & Prototyping', 'Visual Design', 'Usability Testing'],
-      price: 'From £1,200',
+      title: 'Hospitality & Service Website',
+      description: 'Ideal for restaurants, cafés, hotels, spas, or service providers.',
+      features: ['Menu/service listings', 'Booking/reservation form', 'Gallery & reviews', 'Google Maps integration', 'Social media integration'],
+      price: '£2,500 - £4,000',
+      enterprisePrice: '£4,500 - £7,000',
+      popular: false
+    },
+    {
+      icon: ShoppingCart,
+      title: 'Ecommerce Website',
+      description: 'Complete online stores for businesses selling physical or digital products.',
+      features: ['Product catalog', 'Secure checkout', 'Inventory management', 'Customer accounts', 'SEO + analytics', 'Marketing tools'],
+      price: '£5,000 - £10,000+',
+      enterprisePrice: '£10,000 - £18,000+',
       popular: false
     }
   ];
@@ -106,8 +92,15 @@ const Services = () => {
 
                 <CardContent className="pt-0">
                   <div className="space-y-4">
-                    <div className="text-center">
-                      <span className="text-2xl font-bold text-primary">{service.price}</span>
+                    <div className="text-center space-y-2">
+                      <div>
+                        <span className="text-xs text-muted-foreground block mb-1">Standard</span>
+                        <span className="text-xl font-bold text-primary">{service.price}</span>
+                      </div>
+                      <div>
+                        <span className="text-xs text-muted-foreground block mb-1">Enterprise (UI/UX)</span>
+                        <span className="text-xl font-bold text-primary">{service.enterprisePrice}</span>
+                      </div>
                     </div>
 
                     <div className="space-y-3">
