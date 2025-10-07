@@ -9,8 +9,12 @@ import {
   ArrowRight,
   CheckCircle
 } from 'lucide-react';
+import { useState } from 'react';
+import QuoteFormModal from '@/components/QuoteFormModal';
 
 const Services = () => {
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
+  
   const services = [
     {
       icon: Globe,
@@ -127,14 +131,14 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((service, index) => {
             const IconComponent = service.icon;
             
             return (
               <Card 
                 key={index} 
-                className={`relative shadow-medium hover:shadow-large transition-all duration-300 transform hover:scale-105 ${
+                className={`relative h-full flex flex-col shadow-medium hover:shadow-large transition-all duration-300 transform hover:scale-105 ${
                   service.popular ? 'ring-2 ring-primary ring-opacity-50' : ''
                 }`}
               >
@@ -154,8 +158,8 @@ const Services = () => {
                   </CardDescription>
                 </CardHeader>
 
-                <CardContent className="pt-0">
-                  <div className="space-y-6">
+                <CardContent className="pt-0 flex-1 flex flex-col">
+                  <div className="space-y-6 flex-1 flex flex-col">
                     {/* Standard Plan */}
                     <div className="space-y-3">
                       <div className="bg-muted/50 rounded-lg p-3">
@@ -177,7 +181,7 @@ const Services = () => {
                     </div>
 
                     {/* Enterprise Plan */}
-                    <div className="space-y-3 border-t pt-4">
+                    <div className="space-y-3 border-t pt-4 flex-1 flex flex-col">
                       <div className="bg-primary/5 rounded-lg p-3 border border-primary/20">
                         <h4 className="text-sm font-semibold text-foreground mb-1">Enterprise (UI/UX Focused)</h4>
                         <div className="flex items-baseline gap-2">
@@ -199,7 +203,8 @@ const Services = () => {
 
                     <Button 
                       variant={service.popular ? "hero" : "outline"} 
-                      className="w-full group"
+                      className="w-full group mt-auto"
+                      onClick={() => setIsQuoteModalOpen(true)}
                     >
                       Get Started
                       <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -229,6 +234,11 @@ const Services = () => {
           </Card>
         </div>
       </div>
+      
+      <QuoteFormModal 
+        open={isQuoteModalOpen} 
+        onOpenChange={setIsQuoteModalOpen} 
+      />
     </section>
   );
 };
