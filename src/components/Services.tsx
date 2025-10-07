@@ -16,36 +16,100 @@ const Services = () => {
       icon: Globe,
       title: 'Starter Website',
       description: 'Perfect for freelancers, tradesmen, or startups needing a simple online presence.',
-      features: ['Up to 3 sections', 'Mobile-friendly design', 'Contact form', 'Basic SEO setup', 'SSL certificate', 'Domain + hosting setup'],
+      standardFeatures: [
+        'Up to 3 sections (Home, About, Contact)',
+        'Mobile-friendly responsive design',
+        'Contact form integration',
+        'Basic SEO setup',
+        'SSL certificate',
+        'Domain + hosting setup'
+      ],
+      enterpriseFeatures: [
+        'Professional UI/UX design mockups using Figma',
+        '1–2 design concept options for approval',
+        'Custom animations and interaction effects',
+        'Faster delivery timeline',
+        'Dedicated account manager'
+      ],
       price: '£450 - £900',
+      ongoing: '£150 - £250/year',
       enterprisePrice: '£1,000 - £1,800',
+      enterpriseOngoing: '£250 - £350/year',
       popular: false
     },
     {
       icon: Database,
       title: 'Professional Business Website',
       description: 'Growing businesses wanting more functionality and polish with 5-10 pages.',
-      features: ['Up to 10 pages', 'Custom responsive layout', 'On-page SEO', 'Blog setup', 'Google Analytics', 'Basic security'],
+      standardFeatures: [
+        'Up to 10 pages (Home, Services, Blog, etc.)',
+        'Custom responsive layout',
+        'On-page SEO',
+        'Blog setup',
+        'Google Analytics integration',
+        'Basic security'
+      ],
+      enterpriseFeatures: [
+        'Custom UI/UX design strategy with wireframes',
+        'Interactive Figma prototype approval',
+        'Advanced animations & micro-interactions',
+        'Priority delivery',
+        'Dedicated project manager & revision rounds'
+      ],
       price: '£1,200 - £2,500',
+      ongoing: '£250 - £400/year',
       enterprisePrice: '£2,800 - £4,500',
+      enterpriseOngoing: '£350 - £500/year',
       popular: true
     },
     {
       icon: Palette,
       title: 'Hospitality & Service Website',
       description: 'Ideal for restaurants, cafés, hotels, spas, or service providers.',
-      features: ['Menu/service listings', 'Booking/reservation form', 'Gallery & reviews', 'Google Maps integration', 'Social media integration'],
+      standardFeatures: [
+        'Menu/service listings',
+        'Booking or reservation form',
+        'Gallery, reviews, Google Maps',
+        'Blog or events section',
+        'Social media integration'
+      ],
+      enterpriseFeatures: [
+        'Bespoke UX flow and interface design',
+        'Design preview before build',
+        'Enhanced animations and transitions',
+        'Multi-device prototyping',
+        'Dedicated UX designer & project manager'
+      ],
       price: '£2,500 - £4,000',
+      ongoing: '£300 - £600/year',
       enterprisePrice: '£4,500 - £7,000',
+      enterpriseOngoing: '£500 - £700/year',
       popular: false
     },
     {
       icon: ShoppingCart,
       title: 'Ecommerce Website',
       description: 'Complete online stores for businesses selling physical or digital products.',
-      features: ['Product catalog', 'Secure checkout', 'Inventory management', 'Customer accounts', 'SEO + analytics', 'Marketing tools'],
+      standardFeatures: [
+        'Product catalog & category management',
+        'Secure checkout (Stripe, PayPal, etc.)',
+        'Inventory management',
+        'Customer accounts & tracking',
+        'Blog + marketing tools',
+        'SEO + analytics integration'
+      ],
+      enterpriseFeatures: [
+        'Custom UI/UX research & user journey mapping',
+        'High-fidelity Figma prototype with 2–3 design options',
+        'Conversion-optimised checkout flow',
+        'Advanced product filtering and animations',
+        'Custom admin dashboard (optional)',
+        'Dedicated project & design team'
+      ],
       price: '£5,000 - £10,000+',
+      ongoing: '£2,000 - £3,000/year',
       enterprisePrice: '£10,000 - £18,000+',
+      enterpriseOngoing: '£2,500 - £3,500/year',
       popular: false
     }
   ];
@@ -91,25 +155,46 @@ const Services = () => {
                 </CardHeader>
 
                 <CardContent className="pt-0">
-                  <div className="space-y-4">
-                    <div className="text-center space-y-2">
-                      <div>
-                        <span className="text-xs text-muted-foreground block mb-1">Standard</span>
-                        <span className="text-xl font-bold text-primary">{service.price}</span>
+                  <div className="space-y-6">
+                    {/* Standard Plan */}
+                    <div className="space-y-3">
+                      <div className="bg-muted/50 rounded-lg p-3">
+                        <h4 className="text-sm font-semibold text-foreground mb-1">Standard Plan</h4>
+                        <div className="flex items-baseline gap-2">
+                          <span className="text-xl font-bold text-primary">{service.price}</span>
+                          <span className="text-xs text-muted-foreground">+ {service.ongoing}</span>
+                        </div>
                       </div>
-                      <div>
-                        <span className="text-xs text-muted-foreground block mb-1">Enterprise (UI/UX)</span>
-                        <span className="text-xl font-bold text-primary">{service.enterprisePrice}</span>
+                      
+                      <div className="space-y-2 pl-2">
+                        {service.standardFeatures.map((feature, featureIndex) => (
+                          <div key={featureIndex} className="flex items-start">
+                            <CheckCircle className="w-4 h-4 text-primary mr-2 flex-shrink-0 mt-0.5" />
+                            <span className="text-sm text-muted-foreground leading-tight">{feature}</span>
+                          </div>
+                        ))}
                       </div>
                     </div>
 
-                    <div className="space-y-3">
-                      {service.features.map((feature, featureIndex) => (
-                        <div key={featureIndex} className="flex items-center">
-                          <CheckCircle className="w-5 h-5 text-primary mr-3 flex-shrink-0" />
-                          <span className="text-sm text-muted-foreground">{feature}</span>
+                    {/* Enterprise Plan */}
+                    <div className="space-y-3 border-t pt-4">
+                      <div className="bg-primary/5 rounded-lg p-3 border border-primary/20">
+                        <h4 className="text-sm font-semibold text-foreground mb-1">Enterprise (UI/UX Focused)</h4>
+                        <div className="flex items-baseline gap-2">
+                          <span className="text-xl font-bold text-primary">{service.enterprisePrice}</span>
+                          <span className="text-xs text-muted-foreground">+ {service.enterpriseOngoing}</span>
                         </div>
-                      ))}
+                        <p className="text-xs text-muted-foreground mt-1 italic">Includes all Standard features, plus:</p>
+                      </div>
+                      
+                      <div className="space-y-2 pl-2">
+                        {service.enterpriseFeatures.map((feature, featureIndex) => (
+                          <div key={featureIndex} className="flex items-start">
+                            <CheckCircle className="w-4 h-4 text-primary mr-2 flex-shrink-0 mt-0.5" />
+                            <span className="text-sm text-muted-foreground leading-tight">{feature}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
 
                     <Button 
