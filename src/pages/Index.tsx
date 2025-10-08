@@ -7,6 +7,7 @@ import QuoteFormModal from '@/components/QuoteFormModal';
 import Testimonials from '@/components/Testimonials';
 import Footer from '@/components/Footer';
 import ChatWidget from '@/components/ChatWidget';
+import CookieConsent from '@/components/CookieConsent';
 
 const Index = () => {
   return (
@@ -40,6 +41,7 @@ const Index = () => {
         <Footer />
       </section>
       <ChatWidget />
+      <CookieConsent />
     </div>
   );
 };
