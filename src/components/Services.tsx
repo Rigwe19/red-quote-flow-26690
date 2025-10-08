@@ -1,125 +1,57 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { 
-  Globe, 
-  ShoppingCart, 
-  Database,
-  Palette,
-  ArrowRight,
-  CheckCircle
-} from 'lucide-react';
+import { Globe, ShoppingCart, Database, Palette, ArrowRight, CheckCircle } from 'lucide-react';
 import { useState } from 'react';
 import QuoteFormModal from '@/components/QuoteFormModal';
-
 const Services = () => {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
-  
-  const services = [
-    {
-      icon: Globe,
-      title: 'Starter Website',
-      description: 'Perfect for freelancers, tradesmen, or startups needing a simple online presence.',
-      standardFeatures: [
-        'Up to 3 sections (Home, About, Contact)',
-        'Mobile-friendly responsive design',
-        'Contact form integration',
-        'Basic SEO setup',
-        'SSL certificate',
-        'Domain + hosting setup'
-      ],
-      enterpriseFeatures: [
-        'Professional UI/UX design mockups using Figma',
-        '1–2 design concept options for approval',
-        'Custom animations and interaction effects',
-        'Faster delivery timeline',
-        'Dedicated account manager'
-      ],
-      price: '£450 - £900',
-      ongoing: '£150 - £250/year',
-      enterprisePrice: '£1,000 - £1,800',
-      enterpriseOngoing: '£250 - £350/year',
-      popular: false
-    },
-    {
-      icon: Database,
-      title: 'Professional Business Website',
-      description: 'Growing businesses wanting more functionality and polish with 5-10 pages.',
-      standardFeatures: [
-        'Up to 10 pages (Home, Services, Blog, etc.)',
-        'Custom responsive layout',
-        'On-page SEO',
-        'Blog setup',
-        'Google Analytics integration',
-        'Basic security'
-      ],
-      enterpriseFeatures: [
-        'Custom UI/UX design strategy with wireframes',
-        'Interactive Figma prototype approval',
-        'Advanced animations & micro-interactions',
-        'Priority delivery',
-        'Dedicated project manager & revision rounds'
-      ],
-      price: '£1,200 - £2,500',
-      ongoing: '£250 - £400/year',
-      enterprisePrice: '£2,800 - £4,500',
-      enterpriseOngoing: '£350 - £500/year',
-      popular: true
-    },
-    {
-      icon: Palette,
-      title: 'Hospitality & Service Website',
-      description: 'Ideal for restaurants, cafés, hotels, spas, or service providers.',
-      standardFeatures: [
-        'Menu/service listings',
-        'Booking or reservation form',
-        'Gallery, reviews, Google Maps',
-        'Blog or events section',
-        'Social media integration'
-      ],
-      enterpriseFeatures: [
-        'Bespoke UX flow and interface design',
-        'Design preview before build',
-        'Enhanced animations and transitions',
-        'Multi-device prototyping',
-        'Dedicated UX designer & project manager'
-      ],
-      price: '£2,500 - £4,000',
-      ongoing: '£300 - £600/year',
-      enterprisePrice: '£4,500 - £7,000',
-      enterpriseOngoing: '£500 - £700/year',
-      popular: false
-    },
-    {
-      icon: ShoppingCart,
-      title: 'Ecommerce Website',
-      description: 'Complete online stores for businesses selling physical or digital products.',
-      standardFeatures: [
-        'Product catalog & category management',
-        'Secure checkout (Stripe, PayPal, etc.)',
-        'Inventory management',
-        'Customer accounts & tracking',
-        'Blog + marketing tools',
-        'SEO + analytics integration'
-      ],
-      enterpriseFeatures: [
-        'Custom UI/UX research & user journey mapping',
-        'High-fidelity Figma prototype with 2–3 design options',
-        'Conversion-optimised checkout flow',
-        'Advanced product filtering and animations',
-        'Custom admin dashboard (optional)',
-        'Dedicated project & design team'
-      ],
-      price: '£5,000 - £10,000+',
-      ongoing: '£2,000 - £3,000/year',
-      enterprisePrice: '£10,000 - £18,000+',
-      enterpriseOngoing: '£2,500 - £3,500/year',
-      popular: false
-    }
-  ];
-
-  return (
-    <section className="py-20 bg-muted/30" id="services">
+  const services = [{
+    icon: Globe,
+    title: 'Starter Website',
+    description: 'Perfect for freelancers, tradesmen, or startups needing a simple online presence.',
+    standardFeatures: ['Up to 3 sections (Home, About, Contact)', 'Mobile-friendly responsive design', 'Contact form integration', 'Basic SEO setup', 'SSL certificate', 'Domain + hosting setup'],
+    enterpriseFeatures: ['Professional UI/UX design mockups using Figma', '1–2 design concept options for approval', 'Custom animations and interaction effects', 'Faster delivery timeline', 'Dedicated account manager'],
+    price: '£450 - £900',
+    ongoing: '£150 - £250/year',
+    enterprisePrice: '£1,000 - £1,800',
+    enterpriseOngoing: '£250 - £350/year',
+    popular: false
+  }, {
+    icon: Database,
+    title: 'Professional Business Website',
+    description: 'Growing businesses wanting more functionality and polish with 5-10 pages.',
+    standardFeatures: ['Up to 10 pages (Home, Services, Blog, etc.)', 'Custom responsive layout', 'On-page SEO', 'Blog setup', 'Google Analytics integration', 'Basic security'],
+    enterpriseFeatures: ['Custom UI/UX design strategy with wireframes', 'Interactive Figma prototype approval', 'Advanced animations & micro-interactions', 'Priority delivery', 'Dedicated project manager & revision rounds'],
+    price: '£1,200 - £2,500',
+    ongoing: '£250 - £400/year',
+    enterprisePrice: '£2,800 - £4,500',
+    enterpriseOngoing: '£350 - £500/year',
+    popular: true
+  }, {
+    icon: Palette,
+    title: 'Hospitality & Service Website',
+    description: 'Ideal for restaurants, cafés, hotels, spas, or service providers.',
+    standardFeatures: ['Menu/service listings', 'Booking or reservation form', 'Gallery, reviews, Google Maps', 'Blog or events section', 'Social media integration'],
+    enterpriseFeatures: ['Bespoke UX flow and interface design', 'Design preview before build', 'Enhanced animations and transitions', 'Multi-device prototyping', 'Dedicated UX designer & project manager'],
+    price: '£2,500 - £4,000',
+    ongoing: '£300 - £600/year',
+    enterprisePrice: '£4,500 - £7,000',
+    enterpriseOngoing: '£500 - £700/year',
+    popular: false
+  }, {
+    icon: ShoppingCart,
+    title: 'Ecommerce Website',
+    description: 'Complete online stores for businesses selling physical or digital products.',
+    standardFeatures: ['Product catalog & category management', 'Secure checkout (Stripe, PayPal, etc.)', 'Inventory management', 'Customer accounts & tracking', 'Blog + marketing tools', 'SEO + analytics integration'],
+    enterpriseFeatures: ['Custom UI/UX research & user journey mapping', 'High-fidelity Figma prototype with 2–3 design options', 'Conversion-optimised checkout flow', 'Advanced product filtering and animations', 'Custom admin dashboard (optional)', 'Dedicated project & design team'],
+    price: '£5,000 - £10,000+',
+    ongoing: '£2,000 - £3,000/year',
+    enterprisePrice: '£10,000 - £18,000+',
+    enterpriseOngoing: '£2,500 - £3,500/year',
+    popular: false
+  }];
+  return <section className="py-20 bg-muted/30" id="services">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
@@ -131,22 +63,13 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {services.map((service, index) => {
-            const IconComponent = service.icon;
-            
-            return (
-              <Card 
-                key={index} 
-                className={`relative h-full flex flex-col shadow-medium hover:shadow-large transition-all duration-300 transform hover:scale-105 ${
-                  service.popular ? 'ring-2 ring-primary ring-opacity-50' : ''
-                }`}
-              >
-                {service.popular && (
-                  <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground">
+          const IconComponent = service.icon;
+          return <Card key={index} className={`relative h-full flex flex-col shadow-medium hover:shadow-large transition-all duration-300 transform hover:scale-105 ${service.popular ? 'ring-2 ring-primary ring-opacity-50' : ''}`}>
+                {service.popular && <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground">
                     Most Popular
-                  </Badge>
-                )}
+                  </Badge>}
                 
                 <CardHeader className="text-center pb-4">
                   <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 shadow-soft">
@@ -171,12 +94,10 @@ const Services = () => {
                       </div>
                       
                       <div className="space-y-2 pl-2">
-                        {service.standardFeatures.map((feature, featureIndex) => (
-                          <div key={featureIndex} className="flex items-start">
+                        {service.standardFeatures.map((feature, featureIndex) => <div key={featureIndex} className="flex items-start">
                             <CheckCircle className="w-4 h-4 text-primary mr-2 flex-shrink-0 mt-0.5" />
                             <span className="text-sm text-muted-foreground leading-tight">{feature}</span>
-                          </div>
-                        ))}
+                          </div>)}
                       </div>
                     </div>
 
@@ -192,28 +113,21 @@ const Services = () => {
                       </div>
                       
                       <div className="space-y-2 pl-2">
-                        {service.enterpriseFeatures.map((feature, featureIndex) => (
-                          <div key={featureIndex} className="flex items-start">
+                        {service.enterpriseFeatures.map((feature, featureIndex) => <div key={featureIndex} className="flex items-start">
                             <CheckCircle className="w-4 h-4 text-primary mr-2 flex-shrink-0 mt-0.5" />
                             <span className="text-sm text-muted-foreground leading-tight">{feature}</span>
-                          </div>
-                        ))}
+                          </div>)}
                       </div>
                     </div>
 
-                    <Button 
-                      variant={service.popular ? "hero" : "outline"} 
-                      className="w-full group mt-auto"
-                      onClick={() => setIsQuoteModalOpen(true)}
-                    >
+                    <Button variant={service.popular ? "hero" : "outline"} className="w-full group mt-auto" onClick={() => setIsQuoteModalOpen(true)}>
                       Get Started
                       <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </div>
                 </CardContent>
-              </Card>
-            );
-          })}
+              </Card>;
+        })}
         </div>
 
         {/* CTA Section */}
@@ -235,12 +149,7 @@ const Services = () => {
         </div>
       </div>
       
-      <QuoteFormModal 
-        open={isQuoteModalOpen} 
-        onOpenChange={setIsQuoteModalOpen} 
-      />
-    </section>
-  );
+      <QuoteFormModal open={isQuoteModalOpen} onOpenChange={setIsQuoteModalOpen} />
+    </section>;
 };
-
 export default Services;
