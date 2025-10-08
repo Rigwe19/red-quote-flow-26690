@@ -4,56 +4,43 @@ import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger } from 
 import { Button } from '@/components/ui/button';
 import QuoteForm from '@/components/QuoteForm';
 import { useIsMobile } from '@/hooks/use-mobile';
-
 interface QuoteFormModalProps {
   triggerText?: string;
   triggerVariant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link" | "hero" | "cta" | "gradient";
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
 }
-
-const QuoteFormModal = ({ 
-  triggerText = "Get Quote", 
+const QuoteFormModal = ({
+  triggerText = "Get Quote",
   triggerVariant = "hero",
   open: controlledOpen,
   onOpenChange: controlledOnOpenChange
 }: QuoteFormModalProps) => {
   const [internalOpen, setInternalOpen] = useState(false);
   const isMobile = useIsMobile();
-  
+
   // Use controlled state if provided, otherwise use internal state
   const open = controlledOpen !== undefined ? controlledOpen : internalOpen;
   const setOpen = controlledOnOpenChange || setInternalOpen;
-
   if (!isMobile) {
-    return (
-      <Dialog open={open} onOpenChange={setOpen}>
-        {!controlledOpen && (
-          <DialogTrigger asChild>
-            <Button variant={triggerVariant} size="lg">
-              {triggerText}
-            </Button>
-          </DialogTrigger>
-        )}
+    return <Dialog open={open} onOpenChange={setOpen}>
+        {!controlledOpen && <DialogTrigger asChild>
+            
+          </DialogTrigger>}
         <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle>Get a Quote</DialogTitle>
           </DialogHeader>
           <QuoteForm />
         </DialogContent>
-      </Dialog>
-    );
+      </Dialog>;
   }
-
-  return (
-    <Drawer open={open} onOpenChange={setOpen}>
-      {!controlledOpen && (
-        <DrawerTrigger asChild>
+  return <Drawer open={open} onOpenChange={setOpen}>
+      {!controlledOpen && <DrawerTrigger asChild>
           <Button variant={triggerVariant} size="lg">
             {triggerText}
           </Button>
-        </DrawerTrigger>
-      )}
+        </DrawerTrigger>}
       <DrawerContent className="max-h-[90vh]">
         <DrawerHeader>
           <DrawerTitle>Get a Quote</DrawerTitle>
@@ -62,8 +49,6 @@ const QuoteFormModal = ({
           <QuoteForm />
         </div>
       </DrawerContent>
-    </Drawer>
-  );
+    </Drawer>;
 };
-
 export default QuoteFormModal;
