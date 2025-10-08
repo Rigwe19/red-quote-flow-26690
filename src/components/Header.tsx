@@ -57,15 +57,8 @@ const Header = () => {
               {navItems.map(item => <a key={item.name} href={item.href} className="text-foreground hover:text-primary transition-colors duration-200 px-2 py-1" onClick={() => setIsMenuOpen(false)}>
                   {item.name}
                 </a>)}
-              <div className="flex flex-col space-y-2 pt-4">
-                <Button variant="outline" size="sm" onClick={() => {
-              document.getElementById('quote')?.scrollIntoView({
-                behavior: 'smooth'
-              });
-              setIsMenuOpen(false);
-            }}>
-                  Get Quote
-                </Button>
+              <div className="flex flex-col space-y-2 pt-0 rounded-none">
+                
                 <Button variant="hero" size="sm" onClick={() => {
               document.getElementById('quote')?.scrollIntoView({
                 behavior: 'smooth'
