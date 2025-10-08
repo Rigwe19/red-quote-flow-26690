@@ -1,7 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { 
-  Code2, 
   Mail, 
   Phone, 
   MapPin, 
@@ -11,6 +10,7 @@ import {
   Linkedin,
   ArrowRight
 } from 'lucide-react';
+import logo from '@/assets/logo.svg';
 
 const Footer = () => {
   const services = [
@@ -84,12 +84,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <div className="flex items-center space-x-2 mb-6">
-              <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-                <Code2 className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-2xl font-bold">Cyonex</span>
-            </div>
+            <a href="/" className="flex items-center mb-6">
+              <img src={logo} alt="Cyonex Lab" className="h-16" />
+            </a>
             <p className="text-white/80 mb-6 leading-relaxed">
               We're a passionate team of developers and designers who create 
               exceptional digital experiences that drive business growth and 
@@ -106,7 +103,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin className="w-5 h-5 text-primary" />
-                <span className="text-white/80">San Francisco, CA</span>
+                <span className="text-white/80">22 Watford Road, Sudbury Town, Middlesex, United Kingdom, HA0 3EP</span>
               </div>
             </div>
           </div>
