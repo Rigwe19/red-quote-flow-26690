@@ -4,10 +4,10 @@ deployment:
     - export DEPLOYPATH=/home/cyonexla/public_html/
 
     # Step 1: Install dependencies
-    - /usr/local/bin/npm ci
+    - /home/cyonexla/nodevenv/repositories/cyonex/24/bin/npm ci
 
     # Step 2: Build the React app
-    - /usr/local/bin/npm run build
+    - /home/cyonexla/nodevenv/repositories/cyonex/24/bin/npm run build
 
     # Step 3: Remove old build
     - /bin/rm -rf $DEPLOYPATH/*
