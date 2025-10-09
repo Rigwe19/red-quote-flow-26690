@@ -4,18 +4,18 @@ deployment:
     - export DEPLOYPATH=/home/cyonexla/public_html/
 
     # Step 1: Install dependencies
-    - /bin/npm ci
+    - /usr/local/bin/npm ci
 
     # Step 2: Build the React app
-    - /bin/npm run build
+    - /usr/local/bin/npm run build
 
-    # Step 3: Remove old build (optional but recommended)
+    # Step 3: Remove old build
     - /bin/rm -rf $DEPLOYPATH/*
 
     # Step 4: Copy new build to public_html
     - /bin/cp -R build/* $DEPLOYPATH
 
-    # Step 5: Add .htaccess for React Router support (important for SPAs)
+    # Step 5: Add .htaccess for React Router support
     - /bin/echo "<IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteBase /
