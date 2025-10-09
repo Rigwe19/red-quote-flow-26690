@@ -1,67 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://cyonexlab.lovable.app/</loc>
+    <loc>https://cyonexlab.org/</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://cyonexlab.lovable.app/blog</loc>
+    <loc>https://cyonexlab.org/blog</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cyonexlab.lovable.app/docs</loc>
+    <loc>https://cyonexlab.org/docs</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cyonexlab.lovable.app/help</loc>
+    <loc>https://cyonexlab.org/help</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cyonexlab.lovable.app/tutorials</loc>
+    <loc>https://cyonexlab.org/tutorials</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cyonexlab.lovable.app/api-docs</loc>
+    <loc>https://cyonexlab.org/api-docs</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://cyonexlab.lovable.app/privacy</loc>
+    <loc>https://cyonexlab.org/privacy</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://cyonexlab.lovable.app/terms</loc>
+    <loc>https://cyonexlab.org/terms</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://cyonexlab.lovable.app/cookies</loc>
+    <loc>https://cyonexlab.org/cookies</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://cyonexlab.lovable.app/gdpr</loc>
+    <loc>https://cyonexlab.org/gdpr</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://cyonexlab.lovable.app/accessibility</loc>
+    <loc>https://cyonexlab.org/accessibility</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>

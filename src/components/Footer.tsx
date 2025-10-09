@@ -81,11 +81,11 @@ const Footer = () => {
 
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-6 gap-8">
           {/* Company Info */}
-          <div className="lg:col-span-2">
+          <div className="col-span-2">
             <a href="/" className="flex items-center mb-6">
-              <img src={logo} alt="Cyonex Lab" className="h-16" />
+              <img src="/logo-white.webp" alt="Cyonex Lab" className="h-20" />
             </a>
             <p className="text-white/80 mb-6 leading-relaxed">
               We're a passionate team of developers and designers who create 

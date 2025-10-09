@@ -26,9 +26,9 @@ const CookieConsent = () => {
   if (!showConsent) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 p-4 md:p-6 animate-in slide-in-from-bottom duration-300">
-      <div className="container mx-auto max-w-6xl">
-        <div className="bg-foreground text-white rounded-lg shadow-2xl p-6 md:p-8 relative border border-white/10">
+    <div className="fixed bottom-0 left-0 right-0 z-50 p-2 lg:p-4 md:p-6 animate-in slide-in-from-bottom duration-300">
+      <div className="lg:container mx-auto max-w-6xl">
+        <div className="bg-foreground text-white rounded-lg shadow-2xl p-3 md:p-8 relative border border-white/10">
           <button
             onClick={declineCookies}
             className="absolute top-4 right-4 text-white/60 hover:text-white transition-colors"
@@ -54,18 +54,18 @@ const CookieConsent = () => {
                 </Link>
               </p>
             </div>
-
-            <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+            <div className="flex flex-row gap-3 w-full md:w-auto">
               <Button
                 variant="outline"
                 onClick={declineCookies}
-                className="bg-transparent border-white/20 text-white hover:bg-white/10"
+                className="bg-transparent border-white/20 text-white hover:bg-white/10 flex-1"
               >
                 Decline
               </Button>
               <Button
                 variant="hero"
                 onClick={acceptCookies}
+                className='flex-1'
               >
                 Accept All
               </Button>

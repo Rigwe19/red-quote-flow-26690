@@ -32,7 +32,7 @@ const GDPR = () => {
               <section>
                 <h2 className="text-2xl font-semibold mb-4">Contact Our DPO</h2>
                 <p className="text-muted-foreground">
-                  For any GDPR-related inquiries, please contact our Data Protection Officer at hello@cyonex.com
+                  For any GDPR-related inquiries, please contact our Data Protection Officer at info@cyonexlab.org
                 </p>
               </section>
             </div>
