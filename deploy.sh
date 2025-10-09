@@ -5,17 +5,17 @@ set -e
 
 # Paths
 REPO_PATH="/home/cyonexla/repositories/cyonex"
-VENV_PATH="$REPO_PATH/nodevenv/repositories/cyonex/24/bin/activate"
+VENV_PATH="/home/cyonexla/nodevenv/repositories/cyonex/24/bin/activate"
 DEPLOYPATH="/home/cyonexla/public_html"
 
 echo "Starting deployment..."
 
-# 1. Navigate to repository
-cd "$REPO_PATH"
-
-# 2. Activate Node.js virtual environment
+# 1. Activate Node.js virtual environment
 source "$VENV_PATH"
 echo "Activated Node.js virtual environment."
+
+# 2. Navigate to repository
+cd "$REPO_PATH"
 
 # 3. Install dependencies
 echo "Installing dependencies..."
