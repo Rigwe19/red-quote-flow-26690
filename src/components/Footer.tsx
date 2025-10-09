@@ -1,16 +1,15 @@
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Facebook, 
-  Twitter, 
-  Instagram, 
+import {
+  ArrowRight,
+  Facebook,
+  Instagram,
   Linkedin,
-  ArrowRight
+  Mail,
+  MapPin,
+  Phone,
+  Twitter
 } from 'lucide-react';
-import logo from '@/assets/logo.svg';
 
 const Footer = () => {
   const services = [
