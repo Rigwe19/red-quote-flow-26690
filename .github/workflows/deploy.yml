@@ -1,26 +1,48 @@
-script: |
-  echo "🔁 Starting deployment..."
+name: Deploy to cPanel
 
-  cd /home/cyonexla/repositories/cyonex
+on:
+  push:
+    branches:
+    - main # Deploy when pushing to main
 
-  # Load Node.js environment
-  source /home/cyonexla/nodevenv/repositories/cyonex/24/bin/activate
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
 
-  git fetch origin main
-  git reset --hard origin/main
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-  rm -rf node_modules
+    - name: Deploy via SSH to cPanel
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: cyonexlab.org
+        username: cyonexla
+        key: ${{ secrets.CPANEL_SSH_KEY }}
+        port: 9284
+        script: |
+          echo "🔁 Starting deployment..."
 
-  npm install --production --prefix /home/cyonexla/nodevenv/repositories/cyonex/24
+          cd /home/cyonexla/repositories/cyonex
 
-  # Build app using local vite (not global)
-  npx vite build || echo "⚠️ No build script found"
+          # Load Node.js environment
+          source /home/cyonexla/nodevenv/repositories/cyonex/24/bin/activate
 
-  # Deploy via cPanel API (if available)
-  if [ -f /usr/local/cpanel/bin/uapi ]; then
-    /usr/local/cpanel/bin/uapi VersionControlDeployment deploy repository_root=/home/cyonexla/repositories/cyonex
-  else
-    echo "ℹ️ Skipping cPanel deploy: uapi not found."
-  fi
+          git fetch origin main
+          git reset --hard origin/main
 
-  echo "✅ Deployment completed successfully!"
+          rm -rf node_modules
+
+          npm install --production --prefix /home/cyonexla/nodevenv/repositories/cyonex/24
+
+          # Build app using local vite (not global)
+          npx vite build || echo "⚠️ No build script found"
+
+          # Deploy via cPanel API (if available)
+          if [ -f /usr/local/cpanel/bin/uapi ]; then
+            /usr/local/cpanel/bin/uapi VersionControlDeployment deploy repository_root=/home/cyonexla/repositories/cyonex
+          else
+            echo "ℹ️ Skipping cPanel deploy: uapi not found."
+          fi
+
+          echo "✅ Deployment completed successfully!"
