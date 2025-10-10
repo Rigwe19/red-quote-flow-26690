@@ -25,7 +25,7 @@ jobs:
             # cd /home/cyonexla/repositories/cyonex
 
             # Load Node.js environment (change version if needed)
-            source /home/cyonexla/odevenv/repositories/cyonex/24/bin/activate
+            source /home/cyonexla/nodevenv/repositories/cyonex/24/bin/activate
 
 
             # Pull latest code from GitHub
