@@ -3,7 +3,7 @@ name: Deploy to cPanel
 on:
   push:
     branches:
-      - main  # change this if your default branch is different
+      - main  # Deploy when pushing to main
 
 jobs:
   deploy:
@@ -21,23 +21,28 @@ jobs:
           key: ${{ secrets.CPANEL_SSH_KEY }}
           port: 9284
           script: |
-            # Go to the repository directory
-            # cd /home/cyonexla/repositories/cyonex
+            echo "🔁 Starting deployment..."
 
-            # Load Node.js environment (change version if needed)
+            # Ensure we’re in the repository directory
+            cd /home/cyonexla/repositories/cyonex
+
+            # Load Node.js environment (CloudLinux Node Selector)
             source /home/cyonexla/nodevenv/repositories/cyonex/24/bin/activate
 
+            # Make sure we’re on the latest code
+            git fetch origin main
+            git reset --hard origin/main
 
-            # Pull latest code from GitHub
-            git pull origin main
+            # CloudLinux restriction: node_modules must not exist in app root
+            rm -rf node_modules
 
-            # Install dependencies
-            npm install --production
+            # Install dependencies into the Node.js virtual environment
+            npm install --production --prefix /home/cyonexla/nodevenv/repositories/cyonex/24
 
-            # (Optional) Build the app if it's a React/Vue/Next project
-            npm run build || echo "No build script found"
+            # Build app (if applicable)
+            npm run build || echo "⚠️ No build script found"
 
-            # Deploy using cPanel's built-in deployment API
+            # Deploy using cPanel’s deployment API
             /usr/local/cpanel/bin/uapi VersionControlDeployment deploy repository_root=/home/cyonexla/repositories/cyonex
 
             echo "✅ Deployment completed successfully!"
