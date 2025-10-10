@@ -42,8 +42,8 @@ jobs:
           git fetch origin main
           git reset --hard origin/main
 
-          echo "Remove old node_modules"
-          rm -rf /home/cyonexla/repositories/cyonex/node_modules
+          echo "🔗 Ensuring no local node_modules conflict..."
+          [ -L node_modules ] || rm -rf node_modules
 
           echo "📦 Installing dependencies..."
           npm install
@@ -51,11 +51,16 @@ jobs:
           echo "🏗️ Building app..."
           npm run build || echo "⚠️ No build script found"
 
+          if [ ! -d dist ]; then
+            echo "❌ Build failed or dist/ missing. Aborting deployment."
+            exit 1
+          fi
+
           echo "🧹 Cleaning dev dependencies..."
           npm prune --production
 
-          echo "📂 Copying build to public_html..."
-          rm -rf ~/public_html/*
-          cp -r dist/* ~/public_html/
+          echo "📂 Syncing build to public_html..."
+          mkdir -p ~/public_html
+          rsync -av --delete dist/ ~/public_html/
 
           echo "✅ Deployment completed successfully!"
