@@ -1,22 +1,43 @@
 name: Deploy to cPanel
+
 on:
   push:
-    branches: [ main ]  # or your production branch
+    branches:
+      - main  # change this if your default branch is different
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Deploy via SSH
+      - name: Deploy via SSH to cPanel
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: yourdomain.com
+          host: cyonexlab.org
           username: cyonexla
           key: ${{ secrets.CPANEL_SSH_KEY }}
+          port: 22
           script: |
-            cd /home/cyonexla/cyonex
+            # Go to the repository directory
+            # cd /home/cyonexla/repositories/cyonex
+
+            # Load Node.js environment (change version if needed)
+            source /home/cyonexla/odevenv/repositories/cyonex/24/bin/activate
+
+
+            # Pull latest code from GitHub
             git pull origin main
-            /usr/local/cpanel/bin/uapi VersionControlDeployment deploy repository_root=/home/cyonexla/cyonex
+
+            # Install dependencies
+            npm install --production
+
+            # (Optional) Build the app if it's a React/Vue/Next project
+            npm run build || echo "No build script found"
+
+            # Deploy using cPanel's built-in deployment API
+            /usr/local/cpanel/bin/uapi VersionControlDeployment deploy repository_root=/home/cyonexla/repositories/cyonex
+
+            echo "✅ Deployment completed successfully!"
