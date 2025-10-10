@@ -2,25 +2,11 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/cyonexla/public_html/
-
-    # Step 0: Activate Node.js virtual environment
     - source /home/cyonexla/nodevenv/repositories/cyonex/24/bin/activate
-
-    - cd repositories/cyonex
-
-    # Step 1: Install dependencies
     - npm ci
-
-    # Step 2: Build the React app
     - npm run build
-
-    # Step 3: Remove old build
     - /bin/rm -rf $DEPLOYPATH/*
-
-    # Step 4: Copy new build to public_html
-    - /bin/cp -R dist/* $DEPLOYPATH
-
-    # Step 5: Add .htaccess for React Router support
+    - /bin/cp -R build/* $DEPLOYPATH
     - /bin/echo "<IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteBase /
