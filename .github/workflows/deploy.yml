@@ -1,48 +1,26 @@
-name: Deploy to cPanel
+script: |
+  echo "🔁 Starting deployment..."
 
-on:
-  push:
-    branches:
-      - main  # Deploy when pushing to main
+  cd /home/cyonexla/repositories/cyonex
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
+  # Load Node.js environment
+  source /home/cyonexla/nodevenv/repositories/cyonex/24/bin/activate
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+  git fetch origin main
+  git reset --hard origin/main
 
-      - name: Deploy via SSH to cPanel
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: cyonexlab.org
-          username: cyonexla
-          key: ${{ secrets.CPANEL_SSH_KEY }}
-          port: 9284
-          script: |
-            echo "🔁 Starting deployment..."
+  rm -rf node_modules
 
-            # Ensure we’re in the repository directory
-            cd /home/cyonexla/repositories/cyonex
+  npm install --production --prefix /home/cyonexla/nodevenv/repositories/cyonex/24
 
-            # Load Node.js environment (CloudLinux Node Selector)
-            source /home/cyonexla/nodevenv/repositories/cyonex/24/bin/activate
+  # Build app using local vite (not global)
+  npx vite build || echo "⚠️ No build script found"
 
-            # Make sure we’re on the latest code
-            git fetch origin main
-            git reset --hard origin/main
+  # Deploy via cPanel API (if available)
+  if [ -f /usr/local/cpanel/bin/uapi ]; then
+    /usr/local/cpanel/bin/uapi VersionControlDeployment deploy repository_root=/home/cyonexla/repositories/cyonex
+  else
+    echo "ℹ️ Skipping cPanel deploy: uapi not found."
+  fi
 
-            # CloudLinux restriction: node_modules must not exist in app root
-            rm -rf node_modules
-
-            # Install dependencies into the Node.js virtual environment
-            npm install --production --prefix /home/cyonexla/nodevenv/repositories/cyonex/24
-
-            # Build app (if applicable)
-            npm run build || echo "⚠️ No build script found"
-
-            # Deploy using cPanel’s deployment API
-            /usr/local/cpanel/bin/uapi VersionControlDeployment deploy repository_root=/home/cyonexla/repositories/cyonex
-
-            echo "✅ Deployment completed successfully!"
+  echo "✅ Deployment completed successfully!"
