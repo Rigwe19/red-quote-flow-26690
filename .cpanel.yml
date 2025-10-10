@@ -6,4 +6,4 @@ deployment:
     - npm ci
     - npm run build
     - /bin/rm -rf $DEPLOYPATH/*
-    - /bin/cp -R build/* $DEPLOYPATH
+    - /bin/cp -R dist/* $DEPLOYPATH
