@@ -66,7 +66,10 @@ jobs:
           npm prune --production
 
           echo "📂 Syncing build to public_html..."
-          mkdir -p ~/public_html
-          rsync -av --delete dist/ ~/public_html/
+          rm -rf ~/public_html/*
+          cp -R dist/* ~/public_html/
+
+          # mkdir -p ~/public_html
+          # rsync -av --delete dist/ ~/public_html/
 
           echo "✅ Deployment completed successfully!"
