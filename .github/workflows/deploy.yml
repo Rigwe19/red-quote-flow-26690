@@ -48,6 +48,12 @@ jobs:
           echo "📦 Installing dependencies..."
           npm install
 
+          # 🧩 Check for .env before build
+          if [ ! -f .env ]; then
+            echo "❌ Missing .env file on server!"
+            exit 1
+          fi
+
           echo "🏗️ Building app..."
           npm run build || echo "⚠️ No build script found"
 
