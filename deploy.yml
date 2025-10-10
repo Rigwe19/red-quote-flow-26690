@@ -1,0 +1,22 @@
+name: Deploy to cPanel
+on:
+  push:
+    branches: [ main ]  # or your production branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: yourdomain.com
+          username: cyonexla
+          key: ${{ secrets.CPANEL_SSH_KEY }}
+          script: |
+            cd /home/cyonexla/cyonex
+            git pull origin main
+            /usr/local/cpanel/bin/uapi VersionControlDeployment deploy repository_root=/home/cyonexla/cyonex
