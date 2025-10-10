@@ -19,7 +19,7 @@ jobs:
           host: cyonexlab.org
           username: cyonexla
           key: ${{ secrets.CPANEL_SSH_KEY }}
-          port: 22
+          port: 9284
           script: |
             # Go to the repository directory
             # cd /home/cyonexla/repositories/cyonex
