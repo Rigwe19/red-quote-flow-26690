@@ -28,7 +28,7 @@ const Portfolio = () => {
     category: 'NGO',
     description: 'Custom React website for NGO with PayPal integration and advanced analytics.',
     image: '/images/ideas.webp',
-    tags: ['React', 'Next.js', 'Tailwind CSS', 'PayPal'],
+    tags: ['React', 'Figma', 'Tailwind CSS', 'PayPal'],
     client: 'TechCorp Inc.',
     duration: '2 weeks',
     impact: '+150% lead generation',
