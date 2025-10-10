@@ -42,11 +42,14 @@ jobs:
           git fetch origin main
           git reset --hard origin/main
 
+          echo "Remove old node_modules"
+          rm -rf /home/cyonexla/repositories/cyonex/node_modules
+
           echo "📦 Installing dependencies..."
           npm install
 
           echo "🏗️ Building app..."
-          npx vite build || echo "⚠️ No build script found"
+          npm run build || echo "⚠️ No build script found"
 
           echo "🧹 Cleaning dev dependencies..."
           npm prune --production
