@@ -25,20 +25,24 @@ jobs:
 
           cd /home/cyonexla/repositories/cyonex
 
-          # Load Node.js environment
+          # Load Node.js environment (CloudLinux)
           source /home/cyonexla/nodevenv/repositories/cyonex/24/bin/activate
+
+          export NODE_ENV=production
 
           git fetch origin main
           git reset --hard origin/main
 
-          rm -rf node_modules
+          echo "📦 Installing dependencies..."
+          npm install
 
-          npm install --production --prefix /home/cyonexla/nodevenv/repositories/cyonex/24
-
-          # Build app using local vite (not global)
+          echo "🏗️ Building app..."
           npx vite build || echo "⚠️ No build script found"
 
-          # Deploy via cPanel API (if available)
+          echo "🧹 Cleaning dev dependencies..."
+          npm prune --production
+
+          # Deploy if uapi exists
           if [ -f /usr/local/cpanel/bin/uapi ]; then
             /usr/local/cpanel/bin/uapi VersionControlDeployment deploy repository_root=/home/cyonexla/repositories/cyonex
           else
