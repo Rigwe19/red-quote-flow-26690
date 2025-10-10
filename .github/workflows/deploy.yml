@@ -29,12 +29,12 @@ jobs:
           export NODE_ENV=production
 
           # Check if cPanel UAPI is available
-          if [ -f /usr/local/cpanel/bin/uapi ]; then
-            echo "🚀 Using cPanel's built-in deployment..."
-            /usr/local/cpanel/bin/uapi VersionControlDeployment deploy repository_root=/home/cyonexla/repositories/cyonex
-            echo "✅ cPanel deployment complete."
-            exit 0
-          fi
+          # if [ -f /usr/local/cpanel/bin/uapi ]; then
+          #   echo "🚀 Using cPanel's built-in deployment..."
+          #   /usr/local/cpanel/bin/uapi VersionControlDeployment deploy repository_root=/home/cyonexla/repositories/cyonex
+          #   echo "✅ cPanel deployment complete."
+          #   exit 0
+          # fi
 
           echo "⚙️ cPanel UAPI not found. Running manual deployment..."
 
