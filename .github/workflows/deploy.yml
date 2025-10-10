@@ -3,7 +3,7 @@ name: Deploy to cPanel
 on:
   push:
     branches:
-    - main # Deploy when pushing to main
+    - main
 
 jobs:
   deploy:
@@ -22,14 +22,23 @@ jobs:
         port: 9284
         script: |
           echo "🔁 Starting deployment..."
-
           cd /home/cyonexla/repositories/cyonex
 
-          # Load Node.js environment (CloudLinux)
+          # Load Node.js environment
           source /home/cyonexla/nodevenv/repositories/cyonex/24/bin/activate
-
           export NODE_ENV=production
 
+          # Check if cPanel UAPI is available
+          if [ -f /usr/local/cpanel/bin/uapi ]; then
+            echo "🚀 Using cPanel's built-in deployment..."
+            /usr/local/cpanel/bin/uapi VersionControlDeployment deploy repository_root=/home/cyonexla/repositories/cyonex
+            echo "✅ cPanel deployment complete."
+            exit 0
+          fi
+
+          echo "⚙️ cPanel UAPI not found. Running manual deployment..."
+
+          # Pull latest code manually
           git fetch origin main
           git reset --hard origin/main
 
@@ -42,11 +51,8 @@ jobs:
           echo "🧹 Cleaning dev dependencies..."
           npm prune --production
 
-          # Deploy if uapi exists
-          if [ -f /usr/local/cpanel/bin/uapi ]; then
-            /usr/local/cpanel/bin/uapi VersionControlDeployment deploy repository_root=/home/cyonexla/repositories/cyonex
-          else
-            echo "ℹ️ Skipping cPanel deploy: uapi not found."
-          fi
+          echo "📂 Copying build to public_html..."
+          rm -rf ~/public_html/*
+          cp -r dist/* ~/public_html/
 
           echo "✅ Deployment completed successfully!"
