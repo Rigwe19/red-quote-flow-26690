@@ -24,7 +24,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <a href="/" className="flex items-center">
-            <img src="/logo.webp" alt="Cyonex Lab" className="h-16" />
+            <img src="/logo.png" alt="Cyonex Lab" className="h-16" />
           </a>
 
           {/* Desktop Navigation */}

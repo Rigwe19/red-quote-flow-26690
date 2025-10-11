@@ -84,7 +84,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="col-span-2">
             <a href="/" className="flex items-center mb-6">
-              <img src="/logo-white.webp" alt="Cyonex Lab" className="h-20" />
+              <img src="/logo.png" alt="Cyonex Lab" className="h-20" />
             </a>
             <p className="text-white/80 mb-6 leading-relaxed">
               We're a passionate team of developers and designers who create 
