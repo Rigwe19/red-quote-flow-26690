@@ -1,13 +1,13 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Globe, Database, Palette, ArrowRight, CheckCircle } from 'lucide-react';
+import { Rocket, Sparkles, Building2, Briefcase, UtensilsCrossed, Coffee, ArrowRight, CheckCircle } from 'lucide-react';
 import { useState } from 'react';
 import QuoteFormModal from '@/components/QuoteFormModal';
 const Services = () => {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   const services = [{
-    icon: Globe,
+    icon: Rocket,
     title: 'Starter Website',
     tier: 'Standard',
     description: 'Perfect for freelancers, tradesmen, or startups needing a simple online presence.',
@@ -16,7 +16,7 @@ const Services = () => {
     ongoing: '£150 - £250/year',
     popular: false
   }, {
-    icon: Globe,
+    icon: Sparkles,
     title: 'Starter Website',
     tier: 'Enterprise',
     description: 'Perfect for freelancers, tradesmen, or startups needing a simple online presence with premium design.',
@@ -25,7 +25,7 @@ const Services = () => {
     ongoing: '£250 - £350/year',
     popular: false
   }, {
-    icon: Database,
+    icon: Building2,
     title: 'Professional Business Website',
     tier: 'Standard',
     description: 'Growing businesses wanting more functionality and polish with 5-10 pages.',
@@ -34,7 +34,7 @@ const Services = () => {
     ongoing: '£250 - £400/year',
     popular: true
   }, {
-    icon: Database,
+    icon: Briefcase,
     title: 'Professional Business Website',
     tier: 'Enterprise',
     description: 'Growing businesses wanting more functionality and polish with 5-10 pages and premium design.',
@@ -43,7 +43,7 @@ const Services = () => {
     ongoing: '£350 - £500/year',
     popular: false
   }, {
-    icon: Palette,
+    icon: UtensilsCrossed,
     title: 'Hospitality & Service Website',
     tier: 'Standard',
     description: 'Ideal for restaurants, cafés, hotels, spas, or service providers.',
@@ -52,7 +52,7 @@ const Services = () => {
     ongoing: '£300 - £600/year',
     popular: false
   }, {
-    icon: Palette,
+    icon: Coffee,
     title: 'Hospitality & Service Website',
     tier: 'Enterprise',
     description: 'Ideal for restaurants, cafés, hotels, spas, or service providers with premium design.',
@@ -82,10 +82,12 @@ const Services = () => {
                   </Badge>}
                 
                 <CardHeader className="text-center pb-4">
-                  <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 shadow-soft">
+                  <div className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-soft ${service.tier === 'Enterprise' ? 'bg-gradient-to-br from-primary via-primary to-primary/80' : 'bg-primary'}`}>
                     <IconComponent className="w-8 h-8 text-primary-foreground" />
                   </div>
-                  <Badge className="mb-3" variant={service.tier === 'Enterprise' ? 'default' : 'outline'}>
+                  <Badge 
+                    className={`mb-3 ${service.tier === 'Enterprise' ? 'bg-gradient-to-r from-primary via-primary to-primary/80 text-primary-foreground border-0 shadow-soft px-4 py-1' : 'bg-muted text-foreground border-border'}`}
+                  >
                     {service.tier}
                   </Badge>
                   <CardTitle className="text-2xl mb-3">{service.title}</CardTitle>
