@@ -82,14 +82,13 @@ const Services = () => {
                   </Badge>}
                 
                 <CardHeader className="text-center pb-4">
-                  <div className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-soft ${service.tier === 'Enterprise' ? 'bg-gradient-to-br from-primary via-primary to-primary/80' : 'bg-primary'}`}>
-                    <IconComponent className="w-8 h-8 text-primary-foreground" />
+                  <div className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 ${service.tier === 'Enterprise' ? 'bg-gradient-to-br from-primary via-primary/90 to-primary/70 shadow-lg' : 'bg-primary/10 border-2 border-primary/20'}`}>
+                    <IconComponent className={`w-8 h-8 ${service.tier === 'Enterprise' ? 'text-primary-foreground' : 'text-primary'}`} />
                   </div>
-                  <Badge 
-                    className={`mb-3 ${service.tier === 'Enterprise' ? 'bg-gradient-to-r from-primary via-primary to-primary/80 text-primary-foreground border-0 shadow-soft px-4 py-1' : 'bg-muted text-foreground border-border'}`}
-                  >
+                  <div className={`inline-flex items-center gap-2 mb-3 px-4 py-1.5 rounded-full font-semibold text-xs tracking-wide uppercase ${service.tier === 'Enterprise' ? 'bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-500 text-white shadow-md' : 'bg-secondary/80 text-secondary-foreground border border-border/50'}`}>
+                    {service.tier === 'Enterprise' && <Sparkles className="w-3.5 h-3.5" />}
                     {service.tier}
-                  </Badge>
+                  </div>
                   <CardTitle className="text-2xl mb-3">{service.title}</CardTitle>
                   <CardDescription className="text-base">
                     {service.description}
@@ -98,10 +97,14 @@ const Services = () => {
 
                 <CardContent className="pt-0 flex-1 flex flex-col">
                   <div className="space-y-4 flex-1 flex flex-col">
-                    <div className={`rounded-lg p-3 ${service.tier === 'Enterprise' ? 'bg-primary/5 border border-primary/20' : 'bg-muted/50'}`}>
-                      <div className="flex items-baseline gap-2 justify-center">
-                        <span className="text-2xl font-bold text-primary">{service.price}</span>
-                        <span className="text-xs text-muted-foreground">+ {service.ongoing}</span>
+                    <div className={`rounded-xl p-4 ${service.tier === 'Enterprise' ? 'bg-gradient-to-br from-primary/10 via-primary/5 to-transparent border-2 border-primary/20' : 'bg-gradient-to-br from-muted/50 to-muted/30 border border-border/50'}`}>
+                      <div className="text-center space-y-1">
+                        <div className="text-3xl font-bold text-foreground">{service.price}</div>
+                        <div className="text-xs text-muted-foreground font-medium">One-time setup</div>
+                        <div className="pt-2 mt-2 border-t border-border/30">
+                          <div className="text-sm font-semibold text-primary">{service.ongoing}</div>
+                          <div className="text-xs text-muted-foreground">Annual maintenance</div>
+                        </div>
                       </div>
                     </div>
                     
