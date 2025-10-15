@@ -137,28 +137,10 @@ const Testimonials = () => {
           ))}
         </div>
 
-        {/* Trust Indicators */}
-        <div className="text-center mb-12">
-          <h3 className="text-2xl font-bold text-foreground mb-8">
-            Trusted by Leading Companies
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 items-center">
-            {companyLogos.map((company, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-muted rounded-lg flex items-center justify-center mx-auto mb-2 hover:bg-primary/10 transition-colors">
-                  <span className="text-xs font-semibold text-muted-foreground">
-                    {company}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           <div>
-            <div className="text-4xl font-bold text-primary mb-2">150+</div>
+            <div className="text-4xl font-bold text-primary mb-2">25+</div>
             <div className="text-muted-foreground">Projects Completed</div>
           </div>
           <div>
@@ -166,7 +148,7 @@ const Testimonials = () => {
             <div className="text-muted-foreground">Client Satisfaction</div>
           </div>
           <div>
-            <div className="text-4xl font-bold text-primary mb-2">5</div>
+            <div className="text-4xl font-bold text-primary mb-2">2</div>
             <div className="text-muted-foreground">Years Experience</div>
           </div>
           <div>
