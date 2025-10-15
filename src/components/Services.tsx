@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Rocket, Sparkles, Building2, Briefcase, UtensilsCrossed, Coffee, ArrowRight, CheckCircle } from 'lucide-react';
+import { Rocket, Building2, Briefcase, UtensilsCrossed, Coffee, ArrowRight, CheckCircle } from 'lucide-react';
 import { useState } from 'react';
 import QuoteFormModal from '@/components/QuoteFormModal';
 const Services = () => {
@@ -16,7 +16,7 @@ const Services = () => {
     ongoing: '£150 - £250/year',
     popular: false
   }, {
-    icon: Sparkles,
+    icon: Rocket,
     title: 'Starter Website',
     tier: 'Enterprise',
     description: 'Perfect for freelancers, tradesmen, or startups needing a simple online presence with premium design.',
@@ -86,7 +86,6 @@ const Services = () => {
                     <IconComponent className={`w-8 h-8 ${service.tier === 'Enterprise' ? 'text-primary-foreground' : 'text-primary'}`} />
                   </div>
                   <div className={`inline-flex items-center gap-2 mb-3 px-4 py-1.5 rounded-full font-semibold text-xs tracking-wide uppercase ${service.tier === 'Enterprise' ? 'bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-500 text-white shadow-md' : 'bg-secondary/80 text-secondary-foreground border border-border/50'}`}>
-                    {service.tier === 'Enterprise' && <Sparkles className="w-3.5 h-3.5" />}
                     {service.tier}
                   </div>
                   <CardTitle className="text-2xl mb-3">{service.title}</CardTitle>
