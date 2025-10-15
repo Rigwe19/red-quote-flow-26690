@@ -14,7 +14,8 @@ const Services = () => {
     features: ['Up to 3 sections (Home, About, Contact)', 'Mobile-friendly responsive design', 'Contact form integration', 'Basic SEO setup', 'SSL certificate', 'Domain + hosting setup'],
     price: '£450 - £900',
     ongoing: '£150 - £250/year',
-    popular: false
+    popular: false,
+    badge: 'Best Value'
   }, {
     icon: Rocket,
     title: 'Starter Website',
@@ -23,7 +24,8 @@ const Services = () => {
     features: ['All Standard features included', 'Professional UI/UX design mockups using Figma', '1–2 design concept options for approval', 'Custom animations and interaction effects', 'Faster delivery timeline', 'Dedicated account manager'],
     price: '£1,000 - £1,800',
     ongoing: '£250 - £350/year',
-    popular: false
+    popular: false,
+    badge: null
   }, {
     icon: Building2,
     title: 'Professional Business Website',
@@ -32,7 +34,8 @@ const Services = () => {
     features: ['Up to 10 pages (Home, Services, Blog, etc.)', 'Custom responsive layout', 'On-page SEO', 'Blog setup', 'Google Analytics integration', 'Basic security'],
     price: '£1,200 - £2,500',
     ongoing: '£250 - £400/year',
-    popular: true
+    popular: true,
+    badge: 'Most Popular'
   }, {
     icon: Briefcase,
     title: 'Professional Business Website',
@@ -41,7 +44,8 @@ const Services = () => {
     features: ['All Standard features included', 'Custom UI/UX design strategy with wireframes', 'Interactive Figma prototype approval', 'Advanced animations & micro-interactions', 'Priority delivery', 'Dedicated project manager & revision rounds'],
     price: '£2,800 - £4,500',
     ongoing: '£350 - £500/year',
-    popular: false
+    popular: false,
+    badge: 'Premium'
   }, {
     icon: UtensilsCrossed,
     title: 'Hospitality & Service Website',
@@ -50,7 +54,8 @@ const Services = () => {
     features: ['Menu/service listings', 'Booking or reservation form', 'Gallery, reviews, Google Maps', 'Blog or events section', 'Social media integration'],
     price: '£2,500 - £4,000',
     ongoing: '£300 - £600/year',
-    popular: false
+    popular: false,
+    badge: null
   }, {
     icon: Coffee,
     title: 'Hospitality & Service Website',
@@ -59,7 +64,8 @@ const Services = () => {
     features: ['All Standard features included', 'Bespoke UX flow and interface design', 'Design preview before build', 'Enhanced animations and transitions', 'Multi-device prototyping', 'Dedicated UX designer & project manager'],
     price: '£4,500 - £7,000',
     ongoing: '£500 - £700/year',
-    popular: false
+    popular: false,
+    badge: 'Luxury'
   }];
   return <section className="py-20 bg-muted/30" id="services">
       <div className="container mx-auto px-4">
@@ -76,9 +82,9 @@ const Services = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => {
           const IconComponent = service.icon;
-          return <Card key={index} className={`relative h-full flex flex-col shadow-medium hover:shadow-large transition-all duration-300 transform hover:scale-105 ${service.popular ? 'ring-2 ring-primary ring-opacity-50' : ''}`}>
-                {service.popular && <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground">
-                    Most Popular
+          return <Card key={index} className={`relative h-full flex flex-col shadow-medium hover:shadow-large transition-all duration-300 transform hover:scale-105 ${service.tier === 'Enterprise' ? 'bg-gradient-to-br from-primary/5 via-background to-background border-primary/20' : ''} ${service.popular ? 'ring-2 ring-primary ring-opacity-50' : ''}`}>
+                {service.badge && <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground">
+                    {service.badge}
                   </Badge>}
                 
                 <CardHeader className="text-center pb-4">
