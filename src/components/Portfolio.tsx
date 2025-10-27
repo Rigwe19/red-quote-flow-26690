@@ -32,7 +32,7 @@ const Portfolio = () => {
     client: 'TechCorp Inc.',
     duration: '2 weeks',
     impact: '+150% lead generation',
-    liveUrl: 'https://ideas-empower.vercel.app',
+    liveUrl: 'https://ideasglobal.org',
     githubUrl: '#'
   }, {
     id: 2,

@@ -8,24 +8,14 @@ const Services = () => {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   const services = [{
     icon: Rocket,
-    title: 'Starter Website',
-    tier: 'Standard',
-    description: 'Perfect for freelancers, tradesmen, or startups needing a simple online presence.',
-    features: ['Up to 3 sections (Home, About, Contact)', 'Mobile-friendly responsive design', 'Contact form integration', 'Basic SEO setup', 'SSL certificate', 'Domain + hosting setup'],
-    price: '£450 - £900',
-    ongoing: '£150 - £250/year',
-    popular: false,
-    badge: 'Best Value'
-  }, {
-    icon: Rocket,
-    title: 'Starter Website',
+    title: 'Premium Starter Website',
     tier: 'Enterprise',
     description: 'Perfect for freelancers, tradesmen, or startups needing a simple online presence with premium design.',
-    features: ['All Standard features included', 'Professional UI/UX design mockups using Figma', '1–2 design concept options for approval', 'Custom animations and interaction effects', 'Faster delivery timeline', 'Dedicated account manager'],
+    features: ['Up to 3 sections (Home, About, Contact)', 'Mobile-friendly responsive design', 'Contact form integration', 'Basic SEO setup', 'SSL certificate', 'Domain + hosting setup', 'Professional UI/UX design mockups using Figma', '1–2 design concept options for approval', 'Custom animations and interaction effects', 'Faster delivery timeline', 'Dedicated account manager'],
     price: '£1,000 - £1,800',
     ongoing: '£250 - £350/year',
     popular: false,
-    badge: null
+    badge: 'Best Value'
   }, {
     icon: Building2,
     title: 'Professional Business Website',
